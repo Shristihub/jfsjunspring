@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: Spring-restaurantapp
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/jfsjunbatch
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update

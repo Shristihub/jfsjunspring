@@ -42,21 +42,6 @@ public interface IBookRepository extends JpaRepository<Book, Integer>{
 	@Query
 	(value = "select * from book where title=?1 and cost<?2",nativeQuery = true)
 	List<Book> findByTitPrice(String title,double price);
-	//named queries
-	@Query(name = "getByCatAuth")
-	List<Book>  findByCatAuth(String category,String author);
-	
-	@Query(name = "getByTitleAndCategory")
-	List<Book> readByTitleAndCat(String title, String category);
-	
-	@Query(name = "getByTitle")
-	List<Book> getAllByTitle(String title);
-	
-	@Query(name="getAll",nativeQuery = true)
-	List<Book> getAllBooks();
-	
-	
-	Streamable<Book> streamByAuthor(String author);
 	
 	
 }
