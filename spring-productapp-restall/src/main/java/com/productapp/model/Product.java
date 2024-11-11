@@ -2,6 +2,8 @@ package com.productapp.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,7 +36,11 @@ public class Product {
 	@OneToMany
 	private List<Offers> offers;
 	@ManyToMany
+	@JsonIgnore
 	private List<Category> categories;
 	@ElementCollection
 	private List<String> paymentType; //COD,UPI,CARD
+	@ElementCollection
+	private List<String> deliveryType; //amazon delivered,standard,prime
+	
 }

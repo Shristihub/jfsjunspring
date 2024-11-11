@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bookapp.model.Book;
 import com.bookapp.service.IBookService;
 
-@RestController
+//@RestController
 @RequestMapping("/book-api/v1")
 public class BookController {
 	@Autowired
@@ -52,7 +52,7 @@ public class BookController {
 		}
 		
 //		http://localhost:8081/book-api/v1/books/author/Kathy
-		@GetMapping("/books/author/{author}")
+		@GetMapping("/books/author/{auth}")
 		List<Book> getByAuth(@PathVariable String author){
 			return bookService.getByAuth(author);
 		}

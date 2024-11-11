@@ -19,7 +19,8 @@ public class Offers {
 	@SequenceGenerator(name = "offers_gen",sequenceName = "offers_seq",initialValue = 1,allocationSize = 1)
 	private String offerId;
 	private String offerName; // cash back,bank offer,partner offer,no cost emi
-	private String offerDesc;  
+	private String offerDesc; 
+	
 	public Offers(String offerName, String offerDesc) {
 		super();
 		this.offerName = offerName;

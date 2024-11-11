@@ -20,9 +20,15 @@ public class Category {
 	@GeneratedValue(generator = "category_gen", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "category_gen",sequenceName = "category_seq",initialValue = 1,allocationSize = 1)
 	private Integer categoryId;
-	private String a;
+	private String subCategory;
 	@ManyToMany
+	
 	private List<Product> products;
+	public Category(String categoryName, String subCategory) {
+		super();
+		this.categoryName = categoryName;
+		this.subCategory = subCategory;
+	}
 	
 	
 
