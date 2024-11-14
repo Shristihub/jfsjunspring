@@ -42,12 +42,16 @@ public class WebConfig {
 
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		return http.authorizeHttpRequests((auth) -> {
-			auth.requestMatchers("/user-api/v1/api-users/**").permitAll();
-//			.anyRequest().authenticated();
-		})
+		return http
+				.csrf(csrf->csrf.disable())
+				.authorizeHttpRequests(auth -> auth
+						.requestMatchers("/book-api/v1/admin/**").hasAuthority("ADMIN")
+					    .requestMatchers("/book-api/v1/books/**").hasAnyAuthority("ADMIN","USER")
+					    .requestMatchers("/user-api/v1/api-users/register").permitAll()
+					    .anyRequest().authenticated())
 				.httpBasic(Customizer.withDefaults())
-				.authenticationProvider(authenticationProvider()).build();
+				.authenticationProvider(authenticationProvider())
+				.build();
 	}
 
 }

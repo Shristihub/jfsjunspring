@@ -15,24 +15,20 @@ import lombok.ToString;
 @Entity
 @Data
 @NoArgsConstructor
-
 public class Brand {
-
 	@Id // for primary key
 	@GeneratedValue(generator = "brand_gen", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "brand_gen",sequenceName = "brand_seq",initialValue = 1,allocationSize = 1)
 	private Integer brandId;
 	private String brandName; 
 	
-	private String type; // clothing, electronics,
+	private BrandTypes type; // clothing, electronics,
 	@ToString.Exclude
 	@OneToMany
 	private List<Product> products;
-	public Brand( String brandName, String type) {
+	public Brand( String brandName, BrandTypes type) {
 		super();
 		this.brandName = brandName;
 		this.type = type;
 	}
-	
-	
 }

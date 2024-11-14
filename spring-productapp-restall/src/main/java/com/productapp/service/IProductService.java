@@ -11,7 +11,9 @@ public interface IProductService {
 	void deleteProduct(int productId);
 	Product getById(int productId);
 	List<Product> getAll();
-
+	
+	
+    
 	
 	
 	
